@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ファイルのダウンロード</title>
+</head>
+<body>
+    <a href="#" id="downloadLink">動画をダウンロードする</a>
+
+    <script>
+        // ダウンロードリンクの要素を取得
+        var downloadLink = document.getElementById('downloadLink');
+        // リンクがクリックされたときの処理を設定
+        downloadLink.addEventListener('click', function(event) {
+            // リンクのデフォルトの動作（ページの遷移）を無効化
+            event.preventDefault();
+            // ダウンロード用のファイルのURL
+            var fileURL = '/Users/fujinofamily/Downloads/名称未設定フォルダ 5';
+            // ダウンロード用のファイル名
+            var fileName = '圧縮ファイル.zip';
+            // ファイルをダウンロードする処理
+            downloadFile(fileURL, fileName);
+        });
+
+        // ファイルをダウンロードする関数
+        function downloadFile(url, fileName) {
+            // ダウンロード用のリンクを作成
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            // リンクをクリックしてダウンロードを開始
+            a.click();
+        }
+    </script>
+</body>
+</html>
